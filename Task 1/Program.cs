@@ -15,22 +15,24 @@ if (answer == "y")
     Console.WriteLine($"Project: {project.project_name
         }");    
     Console.WriteLine($"Description: {project.description}");
-    Console.WriteLine($"Tech Lead: {project.techLead}");
-    Console.WriteLine(($"Status: {project.status}");
+    Console.WriteLine($"Tech Lead: {project.techLead.name}");
+    Console.WriteLine($"Status: {project.status}");
 
-    for(int task=1;task<project.tasks.Count+1;task++)
+    for(int task=0;task<project.tasks.Count;task++)
     {
-        Console.WriteLine($"{task}.Task {project.tasks[task]} Status:{project.tasks[task].status}");
+        Console.WriteLine($"{task+1}.Task {project.tasks[task].name} Status:{project.tasks[task].status}");
 
-        Console.Write("Assignees:");
-        if (!(project.tasks[task].intern==null))
+        Console.WriteLine("Assignees:");
+        if (!string.IsNullOrEmpty(project.tasks[task].intern.name))
         {
-            Console.WriteLine($"Intern {project.tasks[task].intern.name}");
+            Console.WriteLine($"Intern: {project.tasks[task].intern.name}");
+            Console.WriteLine($"Intern: {project.tasks[task].intern.stack}");
         }
-        else if (!(project.tasks[task].programmer == null))
+        if (!string.IsNullOrEmpty(project.tasks[task].programmer.name))
             {
-                Console.WriteLine($"Intern {project.tasks[task].programmer.name}");
-            }
+                Console.WriteLine($"Trainee Programmer: {project.tasks[task].programmer.name}");
+                Console.WriteLine($"Intern: {project.tasks[task].programmer.stack}");
+        }
     }
 }
 else

@@ -23,7 +23,6 @@ namespace Task_1
         public Task createtask(string name, string description )
         {
             Task task = new Task(name,description);
-            return task;
             Console.Write("Intern: ");
             string intern_name=Console.ReadLine();
             Console.Write("Stack: ");
@@ -34,11 +33,8 @@ namespace Task_1
             Console.Write("Stack: ");
             string pStack = Console.ReadLine();
             TraineeProgrammer programmer = new TraineeProgrammer(programmer_name, pStack);
-            Task task=return this;
-            assignTask(intern, programmer);
-
-
-
+            assignTask(intern, programmer,task);
+            return task;
 
         }
 

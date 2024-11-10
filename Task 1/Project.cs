@@ -23,9 +23,9 @@ namespace Task_1
 
         public TechLead techLead;
 
-        public List<Task> tasks;
+        public List<Task> tasks=new List<Task>();
 
-        string status;
+        public string status;
 
         public Project(string name, string git_repo)
         {
@@ -35,14 +35,14 @@ namespace Task_1
 
         public int setDuration(DateTime startDate, DateTime endDate)
         {
-            duration = endDate.Month - startDate.Month;
+            this.duration = endDate.Month - startDate.Month;
             return duration;
         }
         public DateTime startProject()
         {
             bool createTask = false;
-            startDate = DateTime.Now;
-            status= Enum.GetName(typeof(status_options), 0);
+            this.startDate = DateTime.Now;
+            this.status= Enum.GetName(typeof(status_options), 0);
 
             do { 
             Console.Write("Task Name: ");
@@ -50,7 +50,7 @@ namespace Task_1
             Console.Write("Description: ");
             string description = Console.ReadLine();
             Task task = techLead.createtask(taskName, description);
-            tasks.Add(task);
+            this.tasks.Add(task);
 
             Console.Write("Do you want to add another task?Type y or n :");
             string answer=Console.ReadLine();
@@ -71,8 +71,8 @@ namespace Task_1
         public void endProject()
         {
 
-            endDate = DateTime.Now;
-            status=Enum.GetName(typeof(status_options), 1);
+            this.endDate = DateTime.Now;
+            this.status=Enum.GetName(typeof(status_options), 1);
             setDuration(startDate, endDate);
 
         }
@@ -83,7 +83,7 @@ namespace Task_1
 
         public void assignTechLead(TechLead tecLead)
         {
-            techLead = tecLead;
+            this.techLead = tecLead;
         }
 
 

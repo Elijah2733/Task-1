@@ -45,19 +45,19 @@ namespace Task_1
 
         public void startTask()
         {
-            startDate= DateTime.Now;
-            status = Enum.GetName(typeof(status_options), 0);
+            this.startDate= DateTime.Now;
+            this.status = Enum.GetName(typeof(status_options), 0);
         }
 
         public void endTask()
         {
-            endDate= DateTime.Now;
-            status = Enum.GetName(typeof(status_options), 1);
+            this.endDate= DateTime.Now;
+            this.status = Enum.GetName(typeof(status_options), 1);
         }
 
         public void setDuration(DateTime start, DateTime end)
         {
-            duration = end.Month - start.Month;
+            this.duration = end.Month - start.Month;
         }
 
     }
